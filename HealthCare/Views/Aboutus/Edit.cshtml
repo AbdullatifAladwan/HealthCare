@@ -1,0 +1,59 @@
+﻿@model HealthCare.Models.Aboutu
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Aboutu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AboutusId" />
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pargraph1" class="control-label"></label>
+                <input asp-for="Pargraph1" class="form-control" />
+                <span asp-validation-for="Pargraph1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pargraph2" class="control-label"></label>
+                <input asp-for="Pargraph2" class="form-control" />
+                <span asp-validation-for="Pargraph2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pargraph3" class="control-label"></label>
+                <input asp-for="Pargraph3" class="form-control" />
+                <span asp-validation-for="Pargraph3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WebId" class="control-label"></label>
+                <select asp-for="WebId" class="form-control" asp-items="ViewBag.WebId"></select>
+                <span asp-validation-for="WebId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

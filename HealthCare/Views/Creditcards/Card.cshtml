@@ -1,0 +1,82 @@
+﻿@model HealthCare.Models.Creditcard
+
+@{
+    ViewData["Title"] = "Card";
+    Layout = "~/Views/Shared/_Home.cshtml";
+}
+
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+             <span class="h3">Call for an Emergency Service!</span>
+              <h2 class="text-color mt-3">+962799414710 </h2>
+          </div>
+      </div>
+
+      <div class="col-lg-8">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <h2 class="mb-2 title-color">Creditcards</h2>
+@*            <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
+*@               <form asp-action="Card" class="appoinment-form" method="post">
+                    <div class="row">
+                         <div class="col-lg-6">
+                            <div class="form-group">
+                                    <label asp-for="UserId" class="text-black"> <span class="text-danger"></span></label>
+
+                                    <input type="hidden" name="UserId" value=@ViewBag.UserId class="form-control" >
+
+                             
+                               
+                            </div>
+                        </div>
+                      
+                       
+
+                         <div class="col-lg-12">
+                            <div class="form-group">
+                                         <label asp-for="ExpireData" class="text-black">ExpireData <span class="text-danger"></span></label>
+
+                                <input name="ExpireData" id="ExpireData" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                                            <label asp-for="Balance" class="text-black">Balance <span class="text-danger"></span></label>
+
+                                <input name="Balance" id="Balance" type="number" class="form-control" placeholder="Balance">
+                            </div>
+                        </div>
+                         <div class="col-lg-6">
+                            <div class="form-group">
+                   <label asp-for="CardNumber" class="text-black">Card Number <span class="text-danger"></span></label>
+
+                                <input name="CardNumber" id="CardNumber" type="number" class="form-control" placeholder="Card Number">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                            <label asp-for="Ccv" class="text-black">Ccv <span class="text-danger"></span></label>
+                                <input name="Ccv" id="Ccv" type="text" class="form-control" placeholder="Ccv">
+                            </div>
+                        </div>
+                    </div>
+               
+                                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit"<i class="icofont-simple-right ml-2"></i>
+ </form>
+ </div>
+             
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

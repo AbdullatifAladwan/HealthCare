@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HealthCare.Models.Attendance>
+
+@{
+    ViewData["Title"] = "AA";
+    Layout = "~/Views/Shared/_LayoutDoctor.cshtml";
+}
+
+<link href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css" rel="stylesheet" />
+<div class="col-lg-12 col-md-12">
+    <div class="card">
+        <div class="card-header card-header-warning">
+            <h4 class="card-title">Appointment report</h4>
+            <p class="card-category"></p>
+        </div> 
+        <h6 ><a href="/Attendances/Create/@ViewBag.DoctorId"/> Create Attendances</h6>
+
+        <div class="card-body table-responsive">
+          
+
+            
+            <table class="table example">
+                <thead>
+                    <tr>
+                        <th>
+Day                        </th>
+ 
+
+                        <th>
+                           Time
+                        </th>
+                       
+                        <th>
+                           Address
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Day) 
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Doctor.Address)
+                        </td>
+                       
+                      
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

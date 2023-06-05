@@ -1,0 +1,54 @@
+﻿@model HealthCare.Models.Aboutu
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Aboutu</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BackgroundImage)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/Images/@Html.DisplayFor(model =>model.BackgroundImage)" style="height:100px;width:100px;" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pargraph1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pargraph1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pargraph2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pargraph2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pargraph3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pargraph3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Web)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Web.WebId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AboutusId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

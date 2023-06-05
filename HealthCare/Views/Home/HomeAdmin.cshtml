@@ -1,0 +1,191 @@
+﻿@model IEnumerable<HealthCare.Models.Appointment>
+
+@{
+           Layout = "~/Views/Shared/_Layout.cshtml";
+           var number1 = ViewBag.NumberofUser;
+           var number2 = ViewBag.NumberofDoctor;
+}
+<link href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css" rel="stylesheet" />
+<div class="col-lg-12 col-md-12">
+    <div class="card">
+        <div class="card-header card-header-warning">
+            <h4 class="card-title">Appointment report</h4>
+            <p class="card-category"></p>
+        </div>
+        <div class="card-body table-responsive">
+           @* <form action="HomeAdmin" method="Post">
+                <input type="date" name="date" />
+              
+                <button type="submit" >  Search  </button>
+            </form>*@
+
+
+            <table class="table example">
+                <thead>
+                    <tr>
+                        <th>
+                            Doctor Name
+                        </th>
+                        <th>
+                            User Name
+                        </th>
+
+                        <th>
+                          Data
+                        </th>
+                        <th>
+                            Time
+                        </th>
+                        <th>
+                           Fullname
+                        </th>
+                        <th>
+                           Massage
+                        </th>
+                        <th>
+                           Phonenumber
+                        </th>
+                                <th>   Accept Or Reject</th>                
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Doctor.Firstname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Firstname)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fullname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Massage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phonenumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AcceptOrReject)
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ <!-- Customers Card -->
+            <div class="col-xxl-6 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">User <span>| Number of User</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> @number1</h6>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+             <!-- Customers Card -->
+            <div class="col-xxl-6 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Doctor <span>| Number of Doctor</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> @number2 </h6>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+            <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bar Chart</h5>
+
+              <!-- Bar Chart -->
+              <div id="barChart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new ApexCharts(document.querySelector("#barChart"), {
+                    series: [{
+                      data: [@ViewBag.NumberofUser, @ViewBag.NumberofDoctor,  @ViewBag.NumberofAPP ,   @ViewBag.NumberofSp,@ViewBag.NumberofSp1 ]
+                    }],
+                    chart: {
+                      type: 'bar',
+                      height: 350
+                    },
+                    plotOptions: {
+                      bar: {
+                        borderRadius: 4,
+                        horizontal: true,
+                      }
+                    },
+                    dataLabels: {
+                      enabled: false
+                    },
+                    xaxis: {
+                      categories: ['User', 'Doctor', 'Appointment','Specializations','Testimonials'
+                      ],
+                    }
+                  }).render();
+                });
+              </script>
+              <!-- End Bar Chart -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js" defer></script>
+
+<script src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js" defer></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js" defer></script>
+
+<script>
+    $(document).ready(function () {
+        $('.example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
+        });
+    });
+</script>
+

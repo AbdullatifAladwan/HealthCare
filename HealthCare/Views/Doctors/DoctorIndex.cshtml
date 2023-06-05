@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HealthCare.Models.Doctor>
+
+@{
+    ViewData["Title"] = "DoctorIndex";
+    Layout = "~/Views/Shared/_Home.cshtml";
+}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <h1 class="text-capitalize mb-5 text-lg">All Doctors</h1>
+<form action="DoctorIndex" method="Post">
+                <input type="text" name="SearchString" />
+              
+                <button type="submit" >  Search  </button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- portfolio -->
+<section class="section doctors">
+  <div class="container">
+  	  <div class="row justify-content-center">
+             <div class="col-lg-6 text-center">
+                <div class="section-title">
+                    <h2>Doctors</h2>
+                    <div class="divider mx-auto my-4"></div>
+                    <p>We provide a wide range of creative services adipisicing elit. Autem maxime rem modi eaque, voluptate. Beatae officiis neque </p>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="row shuffle-wrapper portfolio-gallery">
+		<tbody>
+        @foreach (var item in Model) {
+      	<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
+	      	<div class="position-relative doctor-inner-box">
+		        <div class="doctor-profile">
+	               <div class="doctor-img">
+	               		<img src="@Url.Content("~/Images/"+item.Imagepath)" alt="Image" class="img-fluid w-100">
+	               </div>
+	            </div>
+                <div class="content mt-3">
+                	<h4 class="mb-0"><a href="/Doctors/DoctorDet/@item.DoctorId">@Html.DisplayFor(modelItem => item.Firstname) @Html.DisplayFor(modelItem => item.Lastname)</a></h4>
+                	<p>@Html.DisplayFor(modelItem => item.Specialization.Specialization1)</p>
+
+                </div> 
+	      	</div>
+      	</div>
+		  }</tbody>
+      </div>
+	  </div>
+	  
+</section>

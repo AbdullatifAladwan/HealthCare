@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "DoYou";
+    Layout = "~/Views/Shared/_Home.cshtml";
+    var num= ViewBag.UserId;
+    var num1= ViewBag.CardId;
+}
+
+<section class="section confirmation">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+          <div class="confirmation-content text-center">
+@*            <i class="icofont-check-circled text-lg text-color-2"></i>
+*@              <h2 class="mt-3 mb-4">Have you registered a credit card?</h2>
+             <a href="/Appointments/Appoi" > <h3>YES</h3> </a> <a href="/Creditcards/Card/@num" ><h3>NO</h3></a>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+

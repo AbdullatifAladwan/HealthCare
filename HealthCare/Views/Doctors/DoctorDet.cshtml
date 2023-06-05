@@ -1,0 +1,57 @@
+﻿@model HealthCare.Models.Doctor 
+
+
+@{
+    ViewData["Title"] = "DoctorDet";
+    Layout = "~/Views/Shared/_Home.cshtml";
+}
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+		
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Doctor Details</span>
+          <h1 class="text-capitalize mb-5 text-lg">@Html.DisplayFor(modelItem =>Model.Firstname) @Html.DisplayFor(modelItem => Model.Lastname)</h1>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+					<img src="@Url.Content("~/Images/"+Model.Imagepath)" alt="Image" class="img-fluid w-100">
+
+					<div class="info-block mt-4">
+						<h4 class="mb-0">@Html.DisplayFor(modelItem =>Model.Firstname) @Html.DisplayFor(modelItem => Model.Lastname)</h4>
+						<p>            @Html.DisplayFor(model => model.Specialization.Specialization1)
+</p>
+
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-8 col-md-6">
+				<div class="doctor-details mt-4 mt-lg-0">
+					<h2 class="text-md">Introducing to myself</h2>
+					<div class="divider my-4"></div>
+					<p>I am Dr.@Html.DisplayFor(modelItem =>Model.Firstname) @Html.DisplayFor(modelItem => Model.Lastname) and an  @Html.DisplayFor(model => model.Specialization.Specialization1)
+specialist, I have been working in my profession for a long time, and I am interested in my patients at my clinic site in  @Html.DisplayFor(model => model.Address)
+</p> 
+					<a href="/Appointments/AppoiDO/@Model.DoctorId" class="btn btn-main-2 btn-round-full mt-3">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+

@@ -1,0 +1,105 @@
+﻿@model HealthCare.Models.Appointment
+
+@{
+    ViewData["Title"] = "AppoiDO";
+    Layout = "~/Views/Shared/_Home.cshtml";
+}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Book your Seat</span>
+          <h1 class="text-capitalize mb-5 text-lg">Appoinment</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+             <span class="h3">Call for an Emergency Service!</span>
+              <h2 class="text-color mt-3">+962799414710 </h2>
+          </div>
+      </div>
+
+      <div class="col-lg-8">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <h2 class="mb-2 title-color">Book an appoinment</h2>
+            <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
+               <form asp-action="AppoiDO" class="appoinment-form" method="post">
+                    <div class="row">
+                         <div class="col-lg-6">
+                            <div class="form-group">
+                                    <label asp-for="UserId" class="text-black"> <span class="text-danger"></span></label>
+
+                                    <input type="hidden" name="UserId" value=@ViewBag.UserId class="form-control" >
+
+                             
+                               
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                      <label asp-for="Doctor" class="text-black">Doctor <span class="text-danger"></span></label>
+                      <input type="hidden" name="DoctorId" value=@ViewBag.DoctorId class="form-control" >
+
+@*                <select asp-for="DoctorId" class ="form-control" asp-items="ViewBag.DoctorId"></select>
+*@
+                            </div>
+                        </div>
+
+                         <div class="col-lg-6">
+                            <div class="form-group">
+                                                            <label asp-for="Data" class="text-black">Data <span class="text-danger"></span></label>
+
+                                <input name="Data" id="Data" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                                            <label asp-for="Time" class="text-black">Time <span class="text-danger"></span></label>
+
+                                <input name="Time" id="Time" type="time" class="form-control" placeholder="Time">
+                            </div>
+                        </div>
+                         <div class="col-lg-6">
+                            <div class="form-group">
+                   <label asp-for="Fullname" class="text-black">Full Name <span class="text-danger"></span></label>
+
+                                <input name="Fullname" id="Fullname" type="text" class="form-control" placeholder="Full Name">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                            <label asp-for="Phonenumber" class="text-black">Phone Number <span class="text-danger"></span></label>
+                                <input name="Phonenumber" id="Phonenumber" type="tel" class="form-control" placeholder="Phone Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group-2 mb-4">
+                                           <label asp-for="Massage" class="text-black">Massage <span class="text-danger"></span></label>
+                        <textarea name="Massage" id="Massage" class="form-control" rows="6" placeholder="Enter Your Message"></textarea>
+                    </div>
+                                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Make Appoinment"<i class="icofont-simple-right ml-2"></i>
+
+             </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

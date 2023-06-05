@@ -1,0 +1,91 @@
+﻿@model IEnumerable<HealthCare.Models.Appointment>
+
+@{
+    ViewData["Title"] = "AA";
+    Layout = "~/Views/Shared/_LayoutDoctor.cshtml";
+}
+
+<h1>AA</h1>
+
+
+
+
+<link href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css" rel="stylesheet" />
+<div class="col-lg-12 col-md-12">
+    <div class="card">
+        <div class="card-header card-header-warning">
+            <h4 class="card-title">Appointment report</h4>
+            <p class="card-category"></p>
+        </div>
+        <div class="card-body table-responsive">
+           @* <form action="HomeAdmin" method="Post">
+                <input type="date" name="date" />
+              
+                <button type="submit" >  Search  </button>
+            </form>*@
+
+
+            <table class="table example">
+                <thead>
+                    <tr>
+                        <th>
+                           User Name
+                        </th>
+                        <th>
+ Data
+ </th>
+
+                        <th>
+                           Time
+                        </th>
+                        <th>
+                            Massage
+                        </th>
+                        <th>
+                           Phonenumber
+                        </th>
+                        <th>
+                           Address
+                        </th>
+                        <th>
+                           Accept Or Reject
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Firstname) @Html.DisplayFor(modelItem => item.User.Lastname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Massage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phonenumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Doctor.Address)
+                       </td>
+                       <td>
+                            @Html.DisplayFor(modelItem => item.AcceptOrReject)
+                       </td>
+                       <td>
+ <h6 ><a href="/Appointments/Edit2/@item.AppointmentId"/> Accept Or Reject </h6>
+                           </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

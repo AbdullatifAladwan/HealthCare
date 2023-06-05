@@ -1,0 +1,58 @@
+﻿@model IEnumerable<HealthCare.Models.Website>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BackgroundImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogoPic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SlidrPic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pargraph)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackgroundImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoPic)
+            </td>
+            <td>
+<img src="@Url.Content("~/Images/"+item.SlidrPic)" alt="Category Image" width="75" height="75"/>            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pargraph)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Firstname)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.WebId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.WebId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.WebId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
